@@ -1,8 +1,10 @@
 from tkinter import *
 
+#Criar window Central
 window=Tk()   
 window.title('Pesquisa')
 
+#Defenir as medidas de todas as janelas e a sua posição ao abrir
 global screenHeight
 global screenWidth
 global appHeight, appWidth
@@ -16,15 +18,19 @@ x = (screenWidth/2) - (appWidth/2)
 y = (screenHeight/2) - (appHeight/2)
 window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
 
+#Lista de todos os filmes 
 l_filmes=["Aquaman", "Luca", "Mary Poppins Returns", "Lady in water", "Knives Out"]
 
+#Lista das series
 l_series=["Cobra Kai", "Ricky and Morty", "Castle", "Shadow and Bone", "Criminal minds"]
 
+#Lista da catedoria dos filmes
 l_f_categorias=["Ação", "Animação", "Comédia", "Fantasia", "Mistério"]
 
+#Lista da categoria das series
 l_s_categorias=["Ação", "Animação", "Comédia", "Fantasia", "Mistério"]
 
-def pes_categoria():
+def pes_categoria(): # Função para ler os botões das categorias e dependendo da categoria selecionada faz uma pesquisa diferente
     if rd_1==True:
         pes_ação()
     elif rd_2==True:
@@ -36,12 +42,7 @@ def pes_categoria():
     elif rd_5==True:
         pes_misterio()
 
-def selecao_item(event):
-    indice = lbox_tarefas.curselection()   # Índice da linha selecionada
-    texto = lbox_tarefas.get(indice)       # Obter conteudo da Listbox, linha selecionada 
-    tarefa.set(texto)
-
-def pes_ação():
+def pes_ação():             #Fução abre uma nova window e procura od filmes e series de ação existentes nas listas
     conWindow = Toplevel()
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Ação")
@@ -52,14 +53,7 @@ def pes_ação():
     f_açao=l_filmes[pos]
     pos_1=l_s_categorias.index("Ação")
     s_açao=l_series[pos_1]
-    print(f_açao)
-
-    frame_açao=
-
-    #ListBox
-    lbox_tarefas=Listbox( width = 35, height=15, bd="3", selectmode = "single", selectbackground="orange")
-    lbox_tarefas.place(x=8, y= 25)
-    lbox_tarefas.bind("<<ListboxSelect>>", selecao_item)      # Evento ao selecionar item da Listbox #########
+    return f_açao, s_açao
 
 def pes_animacao():
     conWindow = Toplevel()
@@ -122,7 +116,7 @@ barra_Menu.add_command(label="Sair", command=window.quit)
 
 window.configure(menu=barra_Menu)
 
-tarefa=StringVar()
+# Variaveis do Checkbutton
 rd_1=IntVar()
 rd_2=IntVar()
 rd_3=IntVar()
