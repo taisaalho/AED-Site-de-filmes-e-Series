@@ -1,10 +1,8 @@
 from tkinter import *
 
-#Criar window Central
 window=Tk()   
 window.title('Pesquisa')
 
-#Defenir as medidas de todas as janelas e a sua posição ao abrir
 global screenHeight
 global screenWidth
 global appHeight, appWidth
@@ -18,49 +16,43 @@ x = (screenWidth/2) - (appWidth/2)
 y = (screenHeight/2) - (appHeight/2)
 window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
 
-#Lista de todos os filmes 
 l_filmes=["Aquaman", "Luca", "Mary Poppins Returns", "Lady in water", "Knives Out"]
 
-#Lista das series
 l_series=["Cobra Kai", "Ricky and Morty", "Castle", "Shadow and Bone", "Criminal minds"]
 
-#Lista da catedoria dos filmes
 l_f_categorias=["Ação", "Animação", "Comédia", "Fantasia", "Mistério"]
 
-#Lista da categoria das series
 l_s_categorias=["Ação", "Animação", "Comédia", "Fantasia", "Mistério"]
 
-def pes_categoria(): # Função para ler os botões das categorias e dependendo da categoria selecionada faz uma pesquisa diferente
-    if rd_1==True:
+def pes_categoria():
+    if rd_1.get()==True:
         pes_ação()
-    elif rd_2==True:
+    elif rd_2.get()==True:
         pes_animacao()
-    elif rd_3==True:
+    elif rd_3.get()==True:
         pes_comedia()
-    elif rd_4==True:
+    elif rd_4.get()==True:
         pes_fantasia()
-    elif rd_5==True:
+    elif rd_5.get()==True:
         pes_misterio()
 
-def pes_ação():             #Fução abre uma nova window e procura od filmes e series de ação existentes nas listas
+def pes_ação():
     conWindow = Toplevel()
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Ação")
     conWindow.focus_force()
-    conWindow.grab_set()
 
     pos=l_f_categorias.index("Ação")
     f_açao=l_filmes[pos]
     pos_1=l_s_categorias.index("Ação")
     s_açao=l_series[pos_1]
-    return f_açao, s_açao
+    return f_açao,s_açao
 
 def pes_animacao():
     conWindow = Toplevel()
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Animação")
     conWindow.focus_force()
-    conWindow.grab_set()
 
     pos=l_f_categorias.index("Animação")
     f_animacao=l_filmes[pos]
@@ -73,7 +65,6 @@ def pes_comedia():
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Comédia")
     conWindow.focus_force()
-    conWindow.grab_set()
 
     pos=l_f_categorias.index("Animação")
     f_comedia=l_filmes[pos]
@@ -86,7 +77,6 @@ def pes_fantasia():
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Fantasia")
     conWindow.focus_force()
-    conWindow.grab_set()
 
     pos=l_f_categorias.index("Fantasia")
     f_fantasia=l_filmes[pos]
@@ -99,7 +89,6 @@ def pes_misterio():
     conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
     conWindow.title("Filmes e series de Mistério")
     conWindow.focus_force()
-    conWindow.grab_set()
 
     pos=l_f_categorias.index("Mistério")
     f_misterio=l_filmes[pos]
@@ -110,13 +99,12 @@ def pes_misterio():
 #Menu Window principal
 barra_Menu=Menu(window)
 
-simuladores_Menu=Menu(barra_Menu)
+sim_Menu=Menu(barra_Menu)
 barra_Menu.add_command(label="Pesquisa")
 barra_Menu.add_command(label="Sair", command=window.quit)
 
 window.configure(menu=barra_Menu)
 
-# Variaveis do Checkbutton
 rd_1=IntVar()
 rd_2=IntVar()
 rd_3=IntVar()
