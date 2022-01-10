@@ -1,8 +1,9 @@
-import os
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog
 
 user="User.txt"
+
 
 #Main Window
 
@@ -12,65 +13,86 @@ mainWindow.title("")        #Nome do site
 mainWindow.resizable(1,1)
 
 
-#Register window
+#Registo window
 
-LSWindow=Tk()
-LSWindow.geometry("100x50")
-LSWindow.title("Register")
-LSWindow.resizable(0.0)
-
-Login=StringVar()
-SignIn=StringVar()
-
+RWindow=Toplevel(mainWindow)
+RWindow.geometry("100x50")
+RWindow.title("Register")
+RWindow.resizable(0.0)
 
 Username=StringVar()
 Password=StringVar()
 
-username_lable = Label(LSWindow, text="Username")
-username_entry = Entry(LSWindow, textvariable=Username)
-password_lable = Label(LSWindow, text="Password")
-password_entry = Entry(LSWindow, textvariable=Password, show='*')
+username_lable = Label(RWindow, text="Username")
+username_entry = Entry(RWindow, textvariable=Username)
+password_lable = Label(RWindow, text="Password")
+password_entry = Entry(RWindow, textvariable=Password, show='*')
 
+
+#Log in Window
  
+LWindow=Toplevel(mainWindow)
+LWindow.geometry("100x50")
+LWindow.title("Register")
+LWindow.resizable(0.0)
+
+Username=StringVar()
+Password=StringVar()
+
+username = Label(LWindow, text="Username")
+username = Entry(LWindow, textvariable=Username)
+password = Label(LWindow, text="Password")
+password = Entry(LWindow, textvariable=Password, show='*')
+
 
 #Buttons
 
 #Button Login
 
-logButton = Button 
+logButton = Button (mainWindow,text="Log In",relief="sunken",command=LogIn ,width=10,height=1)
+logButton.place(x=500,y=50)
 
 #Button Sign In
 
-signButton = Button
-
-#Button Create Account
-
-CreateAccButton = Button
-
-#Button Enter
-
-EnterButton = Button
+registoButton = Button(mainWindow,text="Registo",relief="sunken",command=Registar ,width=10,height=1)
+registoButton.place(x=600,y=50)
 
 
 #Funções
-def Signin():
-    criarConta = txt_texto.get("1.0","end")
-    f = open(user,"w",encoding="utf-8")
-    f.write(criarConta)
-    f.close
+def Registar(username,password):
+    if username == "" or password == "":
+        messagebox.showerror("Criar Conta", "O username e a password não podem ser vazios!")
+        return         
+    f=open(user, "r", encoding="utf-8")
+    listaUsers = f.readlines()
+    f.close()
+    for linha in listaUsers:
+        fields = linha.split(";")
+        if fields[0] == username:
+            messagebox.showerror("Criar Conta", "Já existe um utilizador com esse username!")
+            return 
+    f = open(user, "a")
+    linha = username + ";" + password + "\n"
+    f.write(linha)
+    f.close()
+    messagebox.showinfo("Criar Conta", "Conta criada com sucesso!")
 
-def LogIn():
-    f = open(user,"r",encoding="utf-8")
-    linha = f.readlines()
-    f.close
-    txt_user.delete("1.0","end")
-    for lin in linha:
-        txt_user.insert("end",lin)
-
-def validateLogin(username, password):
-	print("username entered :", username.get())
-	print("password entered :", password.get())
-	return
-
+def LogIn(username,password):
+    f=open(user, "r", encoding="utf-8")
+    listaUsers = f.readlines()
+    f.close()
+    for linha in listaUsers:
+        fields = linha.split(";")
+        if fields[0] == username and fields[1][:-1] == password:
+            msg = "Bem-Vindo " + username
+            messagebox.showinfo("Iniciar Sessão", msg)
+            return username
+    messagebox.showerror("Iniciar Sessão", "O UserName ou a Password estão incorretos!")
+    return ""
+ 
 
 #Pop Up
+
+
+
+mainWindow.mainloop()
