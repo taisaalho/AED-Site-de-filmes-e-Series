@@ -1,3 +1,4 @@
+from curses import window
 from tkinter import *
 from tkinter import messagebox
 from tkinter import filedialog
@@ -15,7 +16,7 @@ mainWindow.resizable(1,1)
 
 #Registo window
 
-RWindow=Toplevel(mainWindow)
+RWindow=mainWindow(mainWindow)
 RWindow.geometry("100x50")
 RWindow.title("Register")
 RWindow.resizable(0.0)
@@ -31,7 +32,7 @@ password_entry = Entry(RWindow, textvariable=Password, show='*')
 
 #Log in Window
  
-LWindow=Toplevel(mainWindow)
+LWindow=mainWindow(mainWindow)
 LWindow.geometry("100x50")
 LWindow.title("Register")
 LWindow.resizable(0.0)
