@@ -1,20 +1,20 @@
-Filme;Aquaman;Ação;Fantasia
-Filme;Deadpool;Ação;Comédia
-Filme;White Wall;Ação;Mistério
-Filme;Spiderman: Into the Spiderverse;Ação;Animação
-Filme;Mary Poppins Returns;Fantasia;Comédia
-Filme;Lady in the Water;Fantasia;Mistério
-Filme;Spirited Away;Fantasia;Animação
-Filme;Knives out;Comédia;Mistério
-Filme;Luca;Comédia;Animação
-Filme;The Adventures of Tintin;Mistério;Animação
-Série;Loki;Ação;Fantasia
-Série;Cobra Kai;Ação;Comédia
-Série;Criminal Minds;Ação;Mistério
-Série;What if...?;Ação;Animação
-Série;Good Omens;Fantasia;Comédia
-Série;Shadow and Bone;Fantasia;Mistério
-Série;Avatar: The Last Airbender;Fantasia;Animação
-Série;Castle;Comédia;Mistério
-Série;Rick and Morty;Comédia;Animação
-Série;Over the Garden Wall;Mistério;Animação
+Filme;Aquaman;Ação;Fantasia;
+Filme;Deadpool;Ação;Comédia;
+Filme;White Wall;Ação;Mistério;
+Filme;Spiderman: Into the Spiderverse;Ação;Animação;
+Filme;Mary Poppins Returns;Fantasia;Comédia;
+Filme;Lady in the Water;Fantasia;Mistério;
+Filme;Spirited Away;Fantasia;Animação;
+Filme;Knives out;Comédia;Mistério;
+Filme;Luca;Comédia;Animação;
+Filme;The Adventures of Tintin;Mistério;Animação;
+Série;Loki;Ação;Fantasia;
+Série;Cobra Kai;Ação;Comédia;
+Série;Criminal Minds;Ação;Mistério;
+Série;What if...?;Ação;Animação;
+Série;Good Omens;Fantasia;Comédia;
+Série;Shadow and Bone;Fantasia;Mistério;
+Série;Avatar: The Last Airbender;Fantasia;Animação;
+Série;Castle;Comédia;Mistério;
+Série;Rick and Morty;Comédia;Animação;
+Série;Over the Garden Wall;Mistério;Animação;
