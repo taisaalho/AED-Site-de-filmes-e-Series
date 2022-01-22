@@ -1,4 +1,5 @@
 
+from calendar import c
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
@@ -41,14 +42,13 @@ Pesquisa.place(x=200,y=25)
 #Imagem - TOP 1
 
 imagemAvatar = Image.open("Avatar.jpg")
-imagemAvatar = imagemAvatar.resize((50,50),Image.ANTIALIAS)
+imagemAvatar = imagemAvatar.resize((35,10), Image.ANTIALIAS)
 imagemAvatar1 = ImageTk.PhotoImage(imagemAvatar)
 
 #Button TOP 1
 Top1 = Button(mainWindow,width=35,height=10,image=imagemAvatar1)
 Top1.place(x=59,y=380)
-top1_label = Label(mainWindow,text="NOME")
-top1_label.place(x=169,y=550)
+
 
 Top2 = Button(mainWindow,text="Top2",width=35,height=10,)
 Top2.place(x=324,y=380)
