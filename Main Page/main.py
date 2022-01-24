@@ -16,6 +16,7 @@ mainWindow.geometry("900x600")
 mainWindow.iconbitmap() #Icon 
 mainWindow.configure(bg="LightSteelBlue4")
 
+
 #Header
 
 Login = Button(mainWindow, text="Login",width=8,height=2)
@@ -27,12 +28,30 @@ Registo.place(x=750,y=25)
 Pesquisa = Button(mainWindow,text="Pesquisa",width=60,height=2)
 Pesquisa.place(x=200,y=25)
 
-#Funçoes e windows do Header
+
+#Funções 
+
+#Login
 
 
 
-#Funções dos buttons
+#Registo
 
+
+
+#Pesquisa
+
+
+
+#Ir para Top 1
+
+
+
+#Ir para Top 2
+
+
+
+#Ir para Top 3
 
 
 
@@ -41,19 +60,27 @@ Pesquisa.place(x=200,y=25)
 
 #Imagem - TOP 1
 
-imagemAvatar = Image.open("Avatar.jpg")
-imagemAvatar = imagemAvatar.resize((35,10), Image.ANTIALIAS)
-imagemAvatar1 = ImageTk.PhotoImage(imagemAvatar)
+imagemAvatar = ImageTk.PhotoImage(Image.open("Avatar.jpg"))
+top1_canvas = Canvas(mainWindow,width=250,height=153,bd=2)
+resized_image= imagemAvatar.resize((300,205), Image.ANTIALIAS)
+new_image= ImageTk.PhotoImage(resized_image)
 
-#Button TOP 1
-Top1 = Button(mainWindow,width=35,height=10,image=imagemAvatar1)
-Top1.place(x=59,y=380)
+top1_canvas.place(x=59,y=380)
+top1_canvas.create_image(10,19,image = imagemAvatar)
 
+#Button TOP 1.
 
-Top2 = Button(mainWindow,text="Top2",width=35,height=10,)
+top1_label = Button(mainWindow,text="Avatar")
+top1_label.place(x=164,y=550)
+
+#Button TOP 2
+
+Top2 = Button(mainWindow,text="Top2",width=35,height=10)
 Top2.place(x=324,y=380)
 top2_label = Label(mainWindow,text="NOME")
 top2_label.place(x=429,y=550)
+
+#Button TOP 3
 
 Top3 = Button(mainWindow,text="Top3",width=35,height=10)
 Top3.place(x=584,y=380)
