@@ -58,13 +58,43 @@ btn_play.place(x=20, y=230)
 btn_pause = Button(trailer_space, bg="blue", text="Pause", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))
 btn_pause.place(x=100, y=230)
 
-#Button marcar como visto
-btn_seen = Button(window, text="Marcar como Visto", height=1, width=15, fg="red", font=("Calisto MT", "8", "bold"))
-btn_seen.place(x=20, y=490)
+#Check button, marcar como visto e adicionar aos favoritos
+val = IntVar()
+val1 = IntVar()
 
-#Button adicionar aos favoritos
-btn_fav = Button(window, text="Adicionar aos Favoritos", height=1, width=20, fg="red", font=("Calisto MT", "8", "bold"))
-btn_fav.place(x=150, y=490)
+check1 = Checkbutton(window, text="Adicionar aos favoritos",variable = val)
+check2 = Checkbutton(window, text="Marcar como visto", variable = val1)
+
+check1.place(x=20, y=490)
+check2.place(x=180, y=490)
+
+def lista_favoritos():
+
+    listaFav = Tk()
+    listaFav.geometry("1150x540")
+    listaFav.resizable(True, True)
+    listaFav.title("Lista de favoritos")
+    listaFav.iconbitmap("imagens\Treetog-Junior-Folder-fav.ico")
+    
+
+
+    if val.get() == 1 and val1.get() == 0:
+        btn1 = Button(listaFav, text = "Filme xxx", font = "Arial 12 bold", relief = "solid", bd = 2)
+        btn1.place(x=50, y=50)
+        
+
+    elif val.get() == 1 and val1.get() == 1:
+        btn2 = Button(listaFav, text = "Filme xxx - Visto", font = "Arial 12 bold", relief = "solid", bd = 2)
+        btn2.place(x=50, y=50)
+        
+
+    listaFav.mainloop()
+
+#Button lista de favoritos
+favButton = Button(window, text="Lista de favoritos",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=lista_favoritos)
+favButton.place(x=565, y=203) 
+
+
 
 #Campo likes/comentários
 eval_space = Canvas(window, bg="gray", width=400, height=500, bd=2, relief="sunken")
@@ -77,5 +107,8 @@ like_space.place(x=15, y=15)
 #Campo de comentários
 com_space = LabelFrame(eval_space, text="Comentários", width=380, height=410, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
 com_space.place(x=15, y=85)
+
+
+
 
 window.mainloop()
