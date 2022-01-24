@@ -1,8 +1,8 @@
 
-from calendar import c
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
+from venv import create
 from PIL import Image,ImageTk
 from tkinter import filedialog
 
@@ -60,18 +60,22 @@ Pesquisa.place(x=200,y=25)
 
 #Imagem - TOP 1
 
-imagemAvatar = ImageTk.PhotoImage(Image.open("Avatar.jpg"))
-top1_canvas = Canvas(mainWindow,width=250,height=153,bd=2)
-resized_image= imagemAvatar.resize((300,205), Image.ANTIALIAS)
-new_image= ImageTk.PhotoImage(resized_image)
+imagemAvatar = Image.open("Main Page//Avatar.jpg")
+imgAvatar = imagemAvatar.resize((250,160), Image.ANTIALIAS)
+AvatarResized = ImageTk.PhotoImage(imgAvatar)
 
+top1_canvas = Canvas(mainWindow,width=250,height=160,bg="gray")
 top1_canvas.place(x=59,y=380)
-top1_canvas.create_image(10,19,image = imagemAvatar)
+top1_canvas.create_image(127,82,image = AvatarResized)
 
 #Button TOP 1.
 
 top1_label = Button(mainWindow,text="Avatar")
 top1_label.place(x=164,y=550)
+
+#Image TOP 2
+
+
 
 #Button TOP 2
 
