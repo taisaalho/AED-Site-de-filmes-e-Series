@@ -60,6 +60,7 @@ registoButton.place(x=600,y=50)
 
 
 #Funções
+
 def Registar(username,password):
     if username == "" or password == "":
         messagebox.showerror("Criar Conta", "O username e a password não podem ser vazios!")
