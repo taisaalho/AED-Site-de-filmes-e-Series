@@ -1,77 +1,84 @@
-# Biblioteca Tkinter: UI
 from tkinter import *
-
-
 
 def limpar():
     lbox_favoritos.delete(0, "end")
+
+def limpar_vistos():
+    lbox_vistos.delete(0, "end")
     
 
-def remover():
-    # Remove o item selecionado da Listbox
-    lbox_favoritos.delete(lbox_favoritos.curselection())   # indice do item selecionado
-    filme.set("")
+def remover_favorito():
+    lbox_favoritos.delete(lbox_favoritos.curselection())   
     f = open("lista_favoritos.txt", "w", encoding="utf-8")
     cont = lbox_favoritos.size()
     for i in range(cont):
-        atividade = lbox_favoritos.get(i) 
-        if atividade.find("\n") == -1:
-            atividade = atividade + "\n"
+        filmes = lbox_favoritos.get(i) 
+        if filmes.find("\n") == -1:
+            filmes = filmes + "\n"
 
-        f.write(atividade)
+        f.write(filmes)
     f.close()
+
+def remover_visto():
+    lbox_vistos.delete(lbox_vistos.curselection())
+    f = open("lista_vistos.txt", "w", encoding="utf-8")
+    cont = lbox_vistos.size()
+    for i in range(cont):
+        filmes = lbox_vistos.get(i)
+        if filmes.find("\n") == -1:
+            filmes = filmes + "\n"
     
 
 def selecao_item(event):
-    indice = lbox_favoritos.curselection()   # Índice da linha selecionada
-    texto = lbox_favoritos.get(indice)       # Obter conteudo da Listbox, linha selecionada 
-    filme.set(texto)
+    indice = lbox_favoritos.curselection()   
+    texto = lbox_favoritos.get(indice)      
+
 
  
 
 
-window=Tk()   # invoca classe tk , cria a "main window"
+window=Tk()   
 window.geometry("1150x540")
-window.title('Lista de Favoritos')
+window.title('Lista de Favoritos e Vistos')
 window.iconbitmap("imagens\Treetog-Junior-Folder-fav.ico")
 
 
 #Panel para ListBox
 panel1 = PanedWindow(width = 250, height = 300, bd = "3", relief = "sunken")
 panel1.place(x=10, y=30)
+panel2 = PanedWindow(width = 250, height = 300, bd = "3", relief = "sunken")
+panel2.place(x=300, y=30)
 
 #ListBox
 lbox_favoritos=Listbox(panel1, width = 35, height=15, bd="3", selectmode = "single", selectbackground="orange")
 lbox_favoritos.place(x=8, y= 25)
-lbox_favoritos.bind("<<ListboxSelect>>", selecao_item)      # Evento ao selecionar item da Listbox #########
+lbox_favoritos.bind("<<ListboxSelect>>", selecao_item)     
 f = open("lista_favoritos.txt","r")
 ficheiro = f.readlines()
 f.close
 for linha in ficheiro:
     lbox_favoritos.insert("end", linha)
 
-# Panel filme
-panel2 = PanedWindow(width = 350, height = 100, bd = "3", relief = "sunken")
-panel2.place(x=300, y=30)
+lbox_vistos=Listbox(panel2, width=35, height=15, bd="3", selectmode = "single", selectbackground="orange")
+lbox_vistos.place(x=8, y=25)
+lbox_vistos.bind("<<ListboxSelect>>", selecao_item)
+f=open("lista_vistos.txt", "r")
+ficheiro = f.readlines()
+f.close
+for linha in ficheiro:
+    lbox_vistos.insert("end", linha)
+
 #Label
-lbl_filme=Label(panel2, text="Selecionado:", fg="blue", font=("Helvetica", 9))
-lbl_filme.place(x=2, y=30)
-#Entry
-filme = StringVar()
-txt_filme=Entry(panel2, width = 35, textvariable= filme)
-txt_filme.place(x=80, y=30)
+lbl_favoritos=Label(panel1, text="Filmes favoritados:", fg="#E34E0E", font=("Helvetica", 11))
+lbl_favoritos.place(x=2, y=2)
+lbl_vistos=Label(panel2, text="Filmes vistos:", fg="#E34E0E", font=("Helvetica", 11))
+lbl_vistos.place(x=2, y=2)
 
 # Buttons
+btn_remove=Button(window,  text = "Remover favorito",width = 15, height = 2, fg = "black", command = remover_favorito)
+btn_remove.place(x=75, y=350)
+btn2_remove=Button(window, text="Remover visto", width=15, height=2, fg="black", command=remover_visto)
+btn2_remove.place(x=365, y=350)
 
+window.mainloop()   
 
-btn_remove=Button(window,  text = "Remove",width = 12, height = 2, fg = "black", command = remover )
-btn_remove.place(x=400, y=200)
-
-
-window.mainloop()   # event listening loop by calling the mainloop()
-
-
-
-
-
-#download = salvar alterações
