@@ -74,8 +74,8 @@ val1 = IntVar()
 check1 = Checkbutton(window, text="Adicionar aos favoritos",variable = val)
 check2 = Checkbutton(window, text="Marcar como visto", variable = val1)
 
-check1.place(x=20, y=490)
-check2.place(x=180, y=490)
+check1.place(x=25, y=480)
+check2.place(x=25, y=505)
 
 def salvar_alteracoes():
 
@@ -104,8 +104,8 @@ def salvar_alteracoes():
 
 
 #Button salva dados do filme
-favButton = Button(window, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
-favButton.place(x=565, y=203) 
+favButton = Button(window, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 11",command=salvar_alteracoes)
+favButton.place(x=200, y=490) 
 
 #Campo likes/comentários
 eval_space = Canvas(window, bg="gray", width=400, height=500, bd=2, relief="sunken")
