@@ -3,7 +3,6 @@ from tkinter import messagebox
 
 window=Tk()   
 window.title('Pesquisa')
-global lbox_filmes
 global screenHeight
 global screenWidth
 global appHeight, appWidth
@@ -12,7 +11,7 @@ screenWidth = window.winfo_screenwidth()
 screenHeight = window.winfo_screenheight()
 
 appWidth = 900
-appHeight = 700
+appHeight = 600
 x = (screenWidth/2) - (appWidth/2)
 y = (screenHeight/2) - (appHeight/2)
 window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
@@ -20,13 +19,6 @@ window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x
 ficheiro="lista_f_s.txt"
 
 def w_pesquisados():
-    conWindow = Toplevel()
-    conWindow.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
-    conWindow.title("Pesquisa")
-    conWindow.focus_force()
-    lbox_filmes=Listbox(conWindow,width=90, height=20, selectmode="single")
-    lbox_filmes.place(x=8, y= 25)
-    lbox_filmes.bind("<<ListboxSelect>>")
     f=open("pesquisados.txt", "r")
     ficheiro=f.readlines()
     f.close
@@ -168,8 +160,8 @@ def pes_misterio():
 def select_filme():
     indice = lbox_filmes.curselection()   # Índice da linha selecionada
     texto = lbox_filmes.get(indice)       # Obter conteudo da Listbox, linha selecionada 
-    filme.set(texto)
-    print(lbox_filmes.curselection())
+    print(texto)
+    #if texto=="Aquaman":
 
 #Menu Window principal
 barra_Menu=Menu(window)
@@ -230,5 +222,9 @@ rd_fantasia.place(x=15,y=250)
 
 rd_misterio=Checkbutton(text="Mistério",variable=rd_5)
 rd_misterio.place(x=15,y=270)
+
+lbox_filmes=Listbox(window,width=55, height=35, selectmode="single")
+lbox_filmes.place(x=540, y= 20)
+lbox_filmes.bind("<<ListboxSelect>>", select_filme)
 
 window.mainloop()
