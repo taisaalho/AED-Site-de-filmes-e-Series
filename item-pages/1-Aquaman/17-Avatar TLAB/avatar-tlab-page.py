@@ -5,6 +5,7 @@ window = Tk()
 window.geometry("1150x540")
 window.title("Avatar: The Last Airbender")
 window.resizable(0, 0)
+window.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
 
 
 #Canvas para póster
@@ -76,31 +77,23 @@ check2 = Checkbutton(window, text="Marcar como visto", variable = val1)
 check1.place(x=20, y=490)
 check2.place(x=180, y=490)
 
-def lista_favoritos():
-
-    listaFav = Tk()
-    listaFav.geometry("1150x540")
-    listaFav.resizable(True, True)
-    listaFav.title("Lista de favoritos")
-    listaFav.iconbitmap("imagens\Treetog-Junior-Folder-fav.ico")
-    
-
+def salvar_alteracoes():
 
     if val.get() == 1 and val1.get() == 0:
-        btn1 = Button(listaFav, text = "Filme xxx", font = "Arial 12 bold", relief = "solid", bd = 2)
-        btn1.place(x=50, y=50)
-        
-
+        f = open("lista_favoritos.txt","a")
+        frase = "Avatar: The Last Airbender (2005)" + "\n"
+        f.write(frase)
+        f.close
     elif val.get() == 1 and val1.get() == 1:
-        btn2 = Button(listaFav, text = "Filme xxx - Visto", font = "Arial 12 bold", relief = "solid", bd = 2)
-        btn2.place(x=50, y=50)
-        
+        f = open("lista_favoritos.txt","a")
+        frase = "Avatar: The Last Airbender (2005) - Visto" + "\n"
+        f.write(frase)
+        f.close
 
-    listaFav.mainloop()
 
-#Button lista de favoritos
-favButton = Button(window, text="Lista de favoritos",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=lista_favoritos)
-favButton.place(x=565, y=203) 
+#Button salva dados do filme
+favButton = Button(window, text="Salvar dados",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
+favButton.place(x=595, y=203) 
 
 #Campo likes/comentários
 eval_space = Canvas(window, bg="gray", width=400, height=500, bd=2, relief="sunken")
