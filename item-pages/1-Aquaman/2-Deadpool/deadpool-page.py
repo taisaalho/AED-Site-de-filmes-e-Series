@@ -84,16 +84,28 @@ def salvar_alteracoes():
         frase = "Deadpool (2016)" + "\n"
         f.write(frase)
         f.close
+
     elif val.get() == 1 and val1.get() == 1:
-        f = open("lista_favoritos.txt","a")
-        frase = "Deadpoll (2016) - Visto" + "\n"
+        f = open("lista_vistos.txt", "a")
+        frase = "Deadpool (2016)" +"\n"
         f.write(frase)
         f.close
+        f = open("lista_favoritos.txt","a")
+        frase = "Deadpool (2016)" + "\n"
+        f.write(frase)
+        f.close
+    elif val.get() == 0 and val1.get() == 1:
+        f=open("lista_vistos.txt", "a")
+        frase = "Deadpool (2016)" + "\n"
+        f.write(frase)
+        f.close
+        
+    
 
 
 #Button salva dados do filme
-favButton = Button(window, text="Salvar dados",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
-favButton.place(x=595, y=203) 
+favButton = Button(window, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
+favButton.place(x=565, y=203) 
 
 #Campo likes/comentários
 eval_space = Canvas(window, bg="gray", width=400, height=500, bd=2, relief="sunken")
