@@ -78,7 +78,6 @@ check1.place(x=20, y=490)
 check2.place(x=180, y=490)
 
 def salvar_alteracoes():
-    Shadow and Bone (2021)
 
     if val.get() == 1 and val1.get() == 0:
         f = open("lista_favoritos.txt","a")
