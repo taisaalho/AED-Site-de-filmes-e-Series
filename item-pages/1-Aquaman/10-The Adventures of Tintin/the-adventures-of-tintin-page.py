@@ -80,12 +80,12 @@ def salvar_alteracoes():
 
     if val.get() == 1 and val1.get() == 0:
         f = open("lista_favoritos.txt","a")
-        frase = "Filme Aquaman (2018)" + "\n"
+        frase = "Filme The Adventures of Tintin (2011)" + "\n"
         f.write(frase)
         f.close
     elif val.get() == 1 and val1.get() == 1:
         f = open("lista_favoritos.txt","a")
-        frase = "Filme Aquaman (2018) - Visto" + "\n"
+        frase = "Filme The Adventures of Tintin (2011) - Visto" + "\n"
         f.write(frase)
         f.close
 
