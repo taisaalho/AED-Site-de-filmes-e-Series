@@ -12,7 +12,7 @@ screenWidth = window.winfo_screenwidth()
 screenHeight = window.winfo_screenheight()
 
 appWidth = 900
-appHeight = 700
+appHeight = 600
 x = (screenWidth/2) - (appWidth/2)
 y = (screenHeight/2) - (appHeight/2)
 window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}" .format(appWidth, appHeight, int(x), int(y)))
