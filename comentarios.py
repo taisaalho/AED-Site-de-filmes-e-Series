@@ -25,7 +25,7 @@ def selecao_item(event):
 def remover():
     lbox_coment.delete(lbox_coment.curselection())
     coment.set("")
-    f = open("tarefas.txt", "w", encoding="utf-8")
+    f = open("coment.txt", "w", encoding="utf-8")
     cont = lbox_coment.size()
     for i in range(cont):
         com = lbox_coment.get(i) 
