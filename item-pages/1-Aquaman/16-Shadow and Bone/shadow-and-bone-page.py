@@ -78,23 +78,35 @@ check1.place(x=20, y=490)
 check2.place(x=180, y=490)
 
 def salvar_alteracoes():
+    Shadow and Bone (2021)
 
     if val.get() == 1 and val1.get() == 0:
         f = open("lista_favoritos.txt","a")
         frase = "Shadow and Bone (2021)" + "\n"
         f.write(frase)
         f.close
+
     elif val.get() == 1 and val1.get() == 1:
-        f = open("lista_favoritos.txt","a")
-        frase = "Shadow and Bone (2021) - Visto" + "\n"
+        f = open("lista_vistos.txt", "a")
+        frase = "Shadow and Bone (2021)" +"\n"
         f.write(frase)
         f.close
+        f = open("lista_favoritos.txt","a")
+        frase = "Shadow and Bone (2021)" + "\n"
+        f.write(frase)
+        f.close
+    elif val.get() == 0 and val1.get() == 1:
+        f=open("lista_vistos.txt", "a")
+        frase = "Shadow and Bone (2021)" + "\n"
+        f.write(frase)
+        f.close
+        
+    
 
 
 #Button salva dados do filme
-favButton = Button(window, text="Salvar dados",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
-favButton.place(x=595, y=203) 
-
+favButton = Button(window, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 12 bold",command=salvar_alteracoes)
+favButton.place(x=565, y=203)
 #Campo likes/comentários
 eval_space = Canvas(window, bg="gray", width=400, height=500, bd=2, relief="sunken")
 eval_space.place(x=720, y=20)
