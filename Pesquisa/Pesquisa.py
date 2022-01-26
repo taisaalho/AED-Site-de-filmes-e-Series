@@ -25,9 +25,8 @@ def w_pesquisados():
     for linha in ficheiro:
         lbox_filmes.insert("end",linha)
     
-
 def pes_nome():
-    f=open("lista_f_s.txt", "r", encoding="utf-8")
+    f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
     ficheiro=f.readlines()
     f.close()
     for linha in ficheiro:
@@ -42,7 +41,7 @@ def pes_nome():
 
 def pes_filme():
     if rd_a.get()==True:
-        f=open("lista_f_s.txt", "r", encoding="utf-8")
+        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
@@ -58,7 +57,7 @@ def pes_filme():
 
 def pes_serie():
     if rd_b.get()==True:
-        f=open("lista_f_s.txt", "r", encoding="utf-8")
+        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
@@ -79,7 +78,7 @@ def pes_ação():
     f.write(text1)
     f.close()
     if rd_1.get()==True:
-        f=open("lista_f_s.txt", "r", encoding="utf-8")
+        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
@@ -95,7 +94,7 @@ def pes_ação():
 
 def pes_animacao():
     if rd_2.get()==True:
-        f=open("lista_f_s.txt", "r", encoding="utf-8")
+        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
@@ -111,7 +110,7 @@ def pes_animacao():
 
 def pes_comedia():
     if rd_3.get()==True:
-        f=open("lista_f_s.txt", "r", encoding="utf-8")
+        f=open("Peesquisa//lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
