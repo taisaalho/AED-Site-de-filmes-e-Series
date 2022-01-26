@@ -14,7 +14,7 @@ mainWindow.title("You Chose!")        #Nome do site
 mainWindow.resizable(0,0)
 mainWindow.geometry("900x700")
 mainWindow.configure(bg="LightSteelBlue4")
-
+mainWindow.iconbitmap("item-pages\item-pages\Martynamru-Leather-Movie.ico")
 
 #Funções 
 
@@ -150,7 +150,7 @@ nov_canvas = Canvas(Recomendo,width=230,height=200,bg="gray")
 nov_canvas.place(x=80,y=20)
 nov_canvas.create_image(115,100,image = KOResized)
 
-Recomendado = Button(Recomendo,width=10,height=1,text="Knives Out",command="8-Knives Out")     
+Recomendado = Button(Recomendo,width=10,height=1,text="Knives Out",command=lambda: function8() )     
 Recomendado.place(x=156,y=10)
 
 
