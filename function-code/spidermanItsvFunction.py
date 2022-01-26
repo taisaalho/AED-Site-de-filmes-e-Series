@@ -1,12 +1,12 @@
 from tkinter import *
-##from tkVideoPlayer import TkinterVideo
+from tkVideoPlayer import TkinterVideo
 
 def function4():
     page = Toplevel()
     page.geometry("1150x540")
     page.title("Spiderman: Into the Spiderverse")
     page.resizable(0, 0)
-    ##page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
+    page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
 
 
     #Canvas para póster
@@ -14,8 +14,8 @@ def function4():
     poster_space.place(x=20, y=20)
 
     #Imagem póster
-    ##img = PhotoImage(file="spiderman-into-the-sverse-poster.gif")
-    ##poster_space.create_image(253, 375, image=img)
+    img = PhotoImage(file="spiderman-into-the-sverse-poster.gif")
+    poster_space.create_image(253, 375, image=img)
 
     #Campo de título
     titulo = Label(page, text="Spiderman: Into the Spiderverse (2018)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
@@ -53,12 +53,12 @@ def function4():
     trailer_space = Canvas(page, bg="gray", width=370, height=268, bd=2, relief="sunken")
     trailer_space.place(x=335, y=250)
 
-    ##videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
-    ##videoplayer.load(r"spiderman-into-the-sverse-trailer.mp4")
+    videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+    videoplayer.load(r"spiderman-into-the-sverse-trailer.mp4")
 
     #Buttons play/pause
-    ##def playVideo() :
-    ##    videoplayer.play()
+    def playVideo() :
+        videoplayer.play()
 
     ##def pauseVideo():
     ##    videoplayer.pause()
