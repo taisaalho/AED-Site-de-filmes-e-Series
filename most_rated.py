@@ -1,4 +1,5 @@
 from tkinter import *
+from lista_de_favs_e_vist import*
 
 window = Tk()
 window.resizable(True, True)
