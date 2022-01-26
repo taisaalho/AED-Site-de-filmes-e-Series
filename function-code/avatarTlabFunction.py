@@ -1,5 +1,5 @@
 from tkinter import *
-##from tkVideoPlayer import TkinterVideo
+from tkVideoPlayer import TkinterVideo
 
 def function17():
     page = Toplevel()
