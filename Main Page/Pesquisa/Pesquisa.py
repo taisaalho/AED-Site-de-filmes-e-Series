@@ -1,10 +1,12 @@
 from tkinter import *
 from tkinter import messagebox
 
+
 def pesquisa():
 
     window=Tk()   
     window.title('Pesquisa')
+    window.iconbitmap("item-pages\item-pages\Martynamru-Leather-Movie.ico")
     global screenHeight
     global screenWidth
     global appHeight, appWidth
