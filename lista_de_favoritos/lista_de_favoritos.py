@@ -1,4 +1,24 @@
 from tkinter import *
+from aquaman-page import*
+from the-adventures-of-tintin-page import*
+from loki-page import*
+from cobra-kai-page import*
+from criminal-minds-page import*
+from what-if-page import*
+from good-omens-page import*
+from shadow-and-bone-page import*
+from avatar-tlab-page import*
+from castle-page import*
+from rick-and-morty-page import*
+from deadpool-page import*
+from over-the-garden-wall-page import*
+from white-wall-page import*
+from spiderman-into-the-sverse-page import*
+from mary-poppins-returns-page import*
+from lady-in-the-water-page import*
+from spirited-away-page import*
+from knives-out-page import*
+from luca-page import*
 
 def limpar():
     lbox_favoritos.delete(0, "end")

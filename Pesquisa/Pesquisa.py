@@ -25,13 +25,14 @@ def w_pesquisados():
     for linha in ficheiro:
         lbox_filmes.insert("end",linha)
     
+
 def pes_nome():
-    f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
+    f=open("lista_f_s.txt", "r", encoding="utf-8")
     ficheiro=f.readlines()
     f.close()
     for linha in ficheiro:
         campos=linha.split(";")
-        if campos[1]==txt_pes.get():
+        if campos[1]==filme.get():
             if campos[1] not in "pesquisados.txt":
                 f=open("pesquisados.txt","a")
                 frase=campos[1]+"\n"
@@ -41,12 +42,11 @@ def pes_nome():
 
 def pes_filme():
     if rd_a.get()==True:
-        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
+        f=open("lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[0]=="Filme":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -57,12 +57,11 @@ def pes_filme():
 
 def pes_serie():
     if rd_b.get()==True:
-        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
+        f=open("lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[0]=="Série":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -78,12 +77,11 @@ def pes_ação():
     f.write(text1)
     f.close()
     if rd_1.get()==True:
-        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
+        f=open("lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[2]=="Ação" or campos[3]=="Ação":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -94,12 +92,11 @@ def pes_ação():
 
 def pes_animacao():
     if rd_2.get()==True:
-        f=open("Pesquisa//lista_f_s.txt", "r", encoding="utf-8")
+        f=open("lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[2]=="Animação" or campos[3]=="Animação":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -110,12 +107,11 @@ def pes_animacao():
 
 def pes_comedia():
     if rd_3.get()==True:
-        f=open("Peesquisa//lista_f_s.txt", "r", encoding="utf-8")
+        f=open("lista_f_s.txt", "r", encoding="utf-8")
         ficheiro=f.readlines()
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[2]=="Comédia" or campos[3]=="Comédia":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -131,7 +127,6 @@ def pes_fantasia():
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[2]=="Fantasia" or campos[3]=="Fantasia":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -147,7 +142,6 @@ def pes_misterio():
         f.close()
         for linha in ficheiro:
             campos=linha.split(";")
-            #print(campos[2],campos[3])
             if campos[2]=="Mistério" or campos[3]=="Mistério":
                 if campos[1] not in "pesquisados.txt":
                     f=open("pesquisados.txt","a")
@@ -156,11 +150,10 @@ def pes_misterio():
                     f.close
     pes_filme()
 
-def select_filme():
-    indice = lbox_filmes.curselection()   # Índice da linha selecionada
-    texto = lbox_filmes.get(indice)       # Obter conteudo da Listbox, linha selecionada 
+def select_filme(event):
+    indice = lbox_filmes.curselection()
+    texto = lbox_filmes.get(indice)
     print(texto)
-    #if texto=="Aquaman":
 
 #Menu Window principal
 barra_Menu=Menu(window)
@@ -181,7 +174,7 @@ rd_4=IntVar()
 rd_5=IntVar()
 
 #Texto Window principal
-txt_pes=Text(window, width=50, height=1, relief="sunken", bd=3)
+txt_pes=Entry(window, width=50, textvariable= filme)
 txt_pes.place(x=10, y=20)
 
 #Botão pesquisa por nome 

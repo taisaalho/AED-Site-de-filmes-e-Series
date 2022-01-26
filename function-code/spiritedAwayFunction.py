@@ -1,12 +1,12 @@
 from tkinter import *
-##from tkVideoPlayer import TkinterVideo
+from tkVideoPlayer import TkinterVideo
 
 def function7():
     page = Toplevel()
     page.geometry("1150x540")
     page.title("Spirited Away")
     page.resizable(0, 0)
-    ##page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
+    page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
 
 
     #Canvas para póster
@@ -14,8 +14,8 @@ def function7():
     poster_space.place(x=20, y=20)
 
     #Imagem póster
-    ##img = PhotoImage(file="spirited-away-poster.gif")
-    ##poster_space.create_image(253, 375, image=img)
+    img = PhotoImage(file="spirited-away-poster.gif")
+    poster_space.create_image(253, 375, image=img)
 
     #Campo de título
     titulo = Label(page, text="Spirited Away (2001)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
@@ -53,15 +53,15 @@ def function7():
     trailer_space = Canvas(page, bg="gray", width=370, height=268, bd=2, relief="sunken")
     trailer_space.place(x=335, y=250)
 
-    ##videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
-    ##videoplayer.load(r"spirited-away-trailer.mp4")
+    videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+    videoplayer.load(r"spirited-away-trailer.mp4")
 
     #Buttons play/pause
-    ##def playVideo() :
-    ##    videoplayer.play()
+    def playVideo() :
+        videoplayer.play()
 
-    ##def pauseVideo():
-    ##    videoplayer.pause()
+    def pauseVideo():
+        videoplayer.pause()
 
     btn_play = Button(trailer_space, bg="blue", text="Play", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = playVideo)
     btn_play.place(x=20, y=230)
