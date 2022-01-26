@@ -185,10 +185,10 @@ button_name.place(x=430, y=20)
 frame_tipo=LabelFrame(window, text="Tipo", width=140, height=90, relief="sunken", bd="3", fg="black")
 frame_tipo.place(x=10,y=60)
 
-rd_filme=Checkbutton(text="Filme", variable=rd_a)
+rd_filme=Checkbutton(frame_tipo, text="Filme", variable=rd_a)
 rd_filme.place(x=15,y=80)
 
-rd_serie=Checkbutton(text="Serie", variable=rd_b)
+rd_serie=Checkbutton(frame_tipo, text="Serie", variable=rd_b)
 rd_serie.place(x=15,y=110)
 
 #Painel das categorias
@@ -200,19 +200,19 @@ button_categorias=Button(window, text="Pesquisa", width=20, height=2, fg="black"
 button_categorias.place(x=230, y=210)
 
 #Seleção das categorias
-rd_açao=Checkbutton(text="Ação",variable=rd_1)
+rd_açao=Checkbutton(frame_categorias, text="Ação",variable=rd_1)
 rd_açao.place(x=15,y=190)
 
-rd_animacao=Checkbutton(text="Animação",variable=rd_2)
+rd_animacao=Checkbutton(frame_categorias, text="Animação",variable=rd_2)
 rd_animacao.place(x=15,y=210)
 
-rd_comedia=Checkbutton(text="Comédia",variable=rd_3)
+rd_comedia=Checkbutton(frame_categorias, text="Comédia",variable=rd_3)
 rd_comedia.place(x=15,y=230)
 
-rd_fantasia=Checkbutton(text="Fantasia",variable=rd_4)
+rd_fantasia=Checkbutton(frame_categorias,text="Fantasia",variable=rd_4)
 rd_fantasia.place(x=15,y=250)
 
-rd_misterio=Checkbutton(text="Mistério",variable=rd_5)
+rd_misterio=Checkbutton(frame_categorias, text="Mistério",variable=rd_5)
 rd_misterio.place(x=15,y=270)
 
 lbox_filmes=Listbox(window,width=55, height=35, selectmode="single")
