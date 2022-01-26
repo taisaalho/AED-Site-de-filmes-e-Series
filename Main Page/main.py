@@ -24,160 +24,13 @@ user = "User.txt"
 
 #Login e Registo
 
+#Login
 
-def login_registo():
 
-    Users = "Main Page\\User.txt"
 
-    mainWindow=Tk()
-    mainWindow.geometry("700x600")
-    mainWindow.title("")        #Nome do site
-    mainWindow.resizable(1,1)
+#Registo  
 
-    user = "User.txt"
 
-    
-    def registo():
-        global register_screen
-        register_screen = Toplevel(mainWindow)
-        register_screen.title("Register")
-        register_screen.geometry("300x250")
-    
-        global username
-        global password
-        global username_entry
-        global password_entry
-        username = StringVar()
-        password = StringVar()
-    
-        Label(register_screen, text="Please enter details below").pack()
-        Label(register_screen, text="").pack()
-        username_lable = Label(register_screen, text="Username * ")
-        username_lable.pack()
-        username_entry = Entry(register_screen, textvariable=username)
-        username_entry.pack()
-        password_lable = Label(register_screen, text="Password * ")
-        password_lable.pack()
-        password_entry = Entry(register_screen, textvariable=password, show='*')
-        password_entry.pack()
-        Label(register_screen, text="").pack()
-        Button(register_screen, text="Register", width=10, height=1, command = register_user).pack()
-    
-    
-    # Designing window for login 
-    
-    def login():
-        global login_screen
-        login_screen = Toplevel(mainWindow)
-        login_screen.title("Login")
-        login_screen.geometry("300x250")
-        Label(login_screen, text="Please enter details below to login").pack()
-        Label(login_screen, text="").pack()
-    
-        global username_verify
-        global password_verify
-    
-        username_verify = StringVar()
-        password_verify = StringVar()
-    
-        global username_login_entry
-        global password_login_entry
-    
-        Label(login_screen, text="Username * ").pack()
-        username_login_entry = Entry(login_screen, textvariable=username_verify)
-        username_login_entry.pack()
-        Label(login_screen, text="").pack()
-        Label(login_screen, text="Password * ").pack()
-        password_login_entry = Entry(login_screen, textvariable=password_verify, show= '*')
-        password_login_entry.pack()
-        Label(login_screen, text="").pack()
-        Button(login_screen, text="Login", width=10, height=1, command = login_verify).pack()
-    
-    # Implementing event on register button
-    
-    def register_user():
-    
-        username_info = username.get()
-        password_info = password.get()
-    
-        file = open(username_info, "w")
-        file.write(username_info + "\n")
-        file.write(password_info)
-        file.close()
-    
-        username_entry.delete(0, END)
-        password_entry.delete(0, END)
-    
-        Label(register_screen, text="Registration Success", fg="green", font=("calibri", 11)).pack()
-    
-    # Implementing event on login button 
-    
-    def login_verify():
-        username1 = username_verify.get()
-        password1 = password_verify.get()
-        username_login_entry.delete(0, END)
-        password_login_entry.delete(0, END)
-    
-        list_of_files = os.listdir()
-        if username1 in user:
-            file1 = open(username1, "r")
-            verify = file1.read().splitlines()
-            if password1 in verify:
-                login_sucess()
-    
-            else:
-                password_not_recognised()
-    
-        else:
-            user_not_found()
-    
-    # Designing popup for login success
-    
-    def login_sucess():
-        global login_success_screen
-        login_success_screen = Toplevel(login_screen)
-        login_success_screen.title("Success")
-        login_success_screen.geometry("150x100")
-        Label(login_success_screen, text="Login Success").pack()
-        Button(login_success_screen, text="OK", command=delete_login_success).pack()
-    
-    # Designing popup for login invalid password
-    
-    def password_not_recognised():
-        global password_not_recog_screen
-        password_not_recog_screen = Toplevel(login_screen)
-        password_not_recog_screen.title("Success")
-        password_not_recog_screen.geometry("150x100")
-        Label(password_not_recog_screen, text="Invalid Password ").pack()
-        Button(password_not_recog_screen, text="OK", command=delete_password_not_recognised).pack()
-    
-    # Designing popup for user not found
-    
-    def user_not_found():
-        global user_not_found_screen
-        user_not_found_screen = Toplevel(login_screen)
-        user_not_found_screen.title("Success")
-        user_not_found_screen.geometry("150x100")
-        Label(user_not_found_screen, text="User Not Found").pack()
-        Button(user_not_found_screen, text="OK", command=delete_user_not_found_screen).pack()
-    
-    # Deleting popups
-    
-    def delete_login_success():
-        login_success_screen.destroy()
-    
-    
-    def delete_password_not_recognised():
-        password_not_recog_screen.destroy()
-    
-    
-    def delete_user_not_found_screen():
-        user_not_found_screen.destroy()
-    
-    
-        mainWindow.mainloop()
-    
- 
 
 #Pesquisa
 
@@ -185,14 +38,662 @@ def login_registo():
 
 #Ir para Top 1
 
+def function17():
+    page = Toplevel()
+    page.geometry("1150x540")
+    page.title("Avatar: The Last Airbender (2005)")
+    page.resizable(0, 0)
+    page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
+
+
+    #Canvas para póster
+    poster_space = Canvas(page, width=298, height=441, bd=2, relief="sunken")
+    poster_space.place(x=20, y=20)
+
+    #Imagem póster
+    img = PhotoImage(file="avatar-tlab-poster.gif")
+    poster_space.create_image(253, 375, image=img)
+
+    #Campo de título
+    titulo = Label(page, text="Avatar: The Last Airbender (2005)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
+    titulo.place(x=350, y=20)
+
+    #Campo de Categorias
+    cat = Label(page, text="Categorias:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cat.place(x=350, y=60)
+
+    cat2 = Label(page, text="Fantasia, Animação", font=("Calisto MT", "10"))
+    cat2.place(x=420, y=60)
+
+    #Classificação
+    clas = Label(page, text="Classificação:", fg="blue", font=("Calisto MT", "10", "bold"))
+    clas.place(x=350, y=80)
+
+    clas2 = Label(page, text="9.3", font=("Calisto MT", "10"))
+    clas2.place(x=435, y=80)
+
+    #Elenco
+    cast = Label(page, text="Elenco:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cast.place(x=350, y=100)
+
+    cast2 = Label(page, text="Zach Tyler Eisen, Dante Basco", font=("Calisto MT", "10"))
+    cast2.place(x=400, y=100)
+
+    #Campo de descrição
+    desc = Text(page, height=6, width=52, font=("Calisto MT", "10", "bold"))
+    desc.place(x=340, y=125)
+    desc.insert(1.0, "Preso durante um século dentro de um iceberg, Aang é um menino de 12 anos que agora está livre do gelo. Ele descobre que tem um destino extraordinário: ser o Avatar. Ele é responsável por garantir o equilíbrio entre os mestres dos quarto elementos, que estão divididos em quatro civilizações: as tribos da Água, da Terra, do Fogo e do Ar. Elas estão perdidas no meio de guerras e destruições. Agora, sua missão é restaurar a ordem do universo. Mas antes ele tem que aprender a dominar todos os elementos.")
+    desc.config(state="disabled")
+    desc.config(wrap=WORD)
+
+    #Campo de trailer
+    trailer_space = Canvas(page, bg="gray", width=370, height=268, bd=2, relief="sunken")
+    trailer_space.place(x=335, y=250)
+
+    videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+    videoplayer.load(r"avatar-tlab-trailer.mp4")
+
+    #Buttons play/pause
+    def playVideo() :
+        videoplayer.play()
+
+    def pauseVideo():
+        videoplayer.pause()
+
+    btn_play = Button(trailer_space, bg="blue", text="Play", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = playVideo)
+    btn_play.place(x=20, y=230)
+
+    btn_pause = Button(trailer_space, bg="blue", text="Pause", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = pauseVideo)
+    btn_pause.place(x=100, y=230)
+
+    #Check button, marcar como visto e adicionar aos favoritos
+    val = IntVar()
+    val1 = IntVar()
+
+    check1 = Checkbutton(page, text="Adicionar aos favoritos",variable = val)
+    check2 = Checkbutton(page, text="Marcar como visto", variable = val1)
+
+    check1.place(x=25, y=480)
+    check2.place(x=25, y=505)
+
+    def salvar_alteracoes():
+
+        if val.get() == 1 and val1.get() == 0:
+            f = open("lista_favoritos.txt","a")
+            frase = "Avatar: The Last Airbender (2005)" + "\n"
+            f.write(frase)
+            f.close
+
+        elif val.get() == 1 and val1.get() == 1:
+            f = open("lista_vistos.txt", "a")
+            frase = "Avatar: The Last Airbender (2005)" +"\n"
+            f.write(frase)
+            f.close
+            f = open("lista_favoritos.txt","a")
+            frase = "Avatar: The Last Airbender (2005)" + "\n"
+            f.write(frase)
+            f.close
+        elif val.get() == 0 and val1.get() == 1:
+            f=open("lista_vistos.txt", "a")
+            frase = "Avatar: The Last Airbender (2005)" + "\n"
+            f.write(frase)
+            f.close
+
+    def comment():
+        linha=txt_coment.get("1.0","end")
+        ficheiro="com_avatar.txt"
+        f=open(ficheiro,"w", encoding="utf-8")
+        f.write(linha)
+        f.close
+        f=open(ficheiro,"r",encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def selecao_item(event):
+        indice = lbox_coment.curselection()
+        texto = lbox_coment.get(indice)
+        coment.set(texto)
+
+    def remover():
+        lbox_coment.delete(lbox_coment.curselection())
+        coment.set("")
+        f = open("com_avatar.txt", "w", encoding="utf-8")
+        cont = lbox_coment.size()
+        for i in range(cont):
+            com = lbox_coment.get(i) 
+            if com.find("\n") == -1:
+                com = com + "\n"
+            f.write(com)
+        f.close()
+
+    def read_comment():
+        f=open("com_avatar.txt", "r")
+        ficheiro=f.readlines()
+        f.close()
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def num_likes():
+        f=open("like_avatar.txt", "r", encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close()
+        count=0
+        for linha in ficheiro:
+            count=count+1
+        count_likes.set(str(count))
+
+    def give_like():
+        if rd_like.get()==True:
+            f=open("like_avatar.txt","a")
+            frase="Like"+"\n"
+            f.write(frase)
+            f.close
+        num_likes()
+
+    #Button salva dados do filme
+    favButton = Button(page, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 11",command=salvar_alteracoes)
+    favButton.place(x=200, y=490) 
+
+    #Campo likes/comentários
+    eval_space = Canvas(page, bg="gray", width=400, height=500, bd=2, relief="sunken")
+    eval_space.place(x=720, y=20)
+
+    #Campo de likes
+    like_space = LabelFrame(eval_space, text="Likes", width=380, height=60, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    like_space.place(x=15, y=15)
+
+    rd_like=IntVar()
+
+    rd_like=Checkbutton(like_space,text="Like",font=("Helvetica", 10) ,variable=rd_like, command=give_like)
+    rd_like.place(x=15,y=7)
+
+    lbl_count_likes=Label(like_space, text="Nº de Likes:", font=("Helvetica", 9))
+    lbl_count_likes.place(x=70, y=10)
+
+    count_likes = StringVar()
+    txt_count_likes=Entry(like_space, width = 5, textvariable= count_likes)
+    txt_count_likes.place(x=140, y=10)
+
+    #Campo de comentários
+    com_space = LabelFrame(eval_space, text="Comentários", width=380, height=410, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    com_space.place(x=15, y=85)
+
+    coment = StringVar()
+
+    #Button
+    btn_guardar=Button(com_space, text="Comentar", width=10, height=2 , fg="blue", command=comment)
+    btn_guardar.place(x=15, y=30)
+
+    btn_limpar=Button(com_space, text="Apagar", width=10, height=2, fg="blue", command=remover)
+    btn_limpar.place(x=120, y=30)
+
+    btn_ler=Button(com_space, text="Ver comentarios", width=15, height=2, fg="blue", command=read_comment)
+    btn_ler.place(x=220, y=30)
+
+    #Label
+    lbl_dcom=Label(com_space, text="Deixe aqui o seu comentario:", bd=2)
+    lbl_dcom.place(x=15,y=80)
+
+    #text
+    txt_coment=Text(com_space, width=40, height=3, relief="sunken", bd=3)
+    txt_coment.place(x=15, y=100)
+
+    #Label
+    lbl_com=Label(com_space, text="Comentários", bd=2)
+    lbl_com.place(x=15,y=157)
+
+    #listbox
+    lbox_coment=Listbox(com_space, width=55, height=12, bd="3", selectmode = "single", selectbackground="blue")
+    lbox_coment.place(x=15, y= 180)
+    lbox_coment.bind("<<ListboxSelect>>", selecao_item)
+
+    page.mainloop()
 
 
 #Ir para Top 2
 
+def function19():
+    page = Toplevel()
+    page.geometry("1150x540")
+    page.title("Rick and Morty")
+    page.resizable(0, 0)
+    page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
+
+
+    #Canvas para póster
+    poster_space = Canvas(page, width=298, height=441, bd=2, relief="sunken")
+    poster_space.place(x=20, y=20)
+
+    #Imagem póster
+    img = PhotoImage(file="rick-and-morty-poster.gif")
+    poster_space.create_image(253, 375, image=img)
+
+    #Campo de título
+    titulo = Label(page, text="Rick and Morty (2013)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
+    titulo.place(x=350, y=20)
+
+    #Campo de Categorias
+    cat = Label(page, text="Categorias:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cat.place(x=350, y=60)
+
+    cat2 = Label(page, text="Comédia, Animação", font=("Calisto MT", "10"))
+    cat2.place(x=420, y=60)
+
+    #Classificação
+    clas = Label(page, text="Classificação:", fg="blue", font=("Calisto MT", "10", "bold"))
+    clas.place(x=350, y=80)
+
+    clas2 = Label(page, text="9.2", font=("Calisto MT", "10"))
+    clas2.place(x=435, y=80)
+
+    #Elenco
+    cast = Label(page, text="Elenco:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cast.place(x=350, y=100)
+
+    cast2 = Label(page, text="Justin Roiland, Spencer Grammer", font=("Calisto MT", "10"))
+    cast2.place(x=400, y=100)
+
+    #Campo de descrição
+    desc = Text(page, height=6, width=52, font=("Calisto MT", "10", "bold"))
+    desc.place(x=340, y=125)
+    desc.insert(1.0, "Rick Sanchez é um cientista genial e alcoólatra que foi morar com a família de sua filha Beth, uma cirurgiã cardíaca de equinos. Ele divide seu tempo entre desenvolver projetos altamente tecnológicos em seu laboratório (garagem da casa de Beth) e levar seu neto de 14 anos Morty em aventuras perigosas e surreais pelo Multiverso. Combinados com tensões preexistentes dentro da família, esses eventos causam ao sensível Morty muito angústia em casa e na escola.")
+    desc.config(state="disabled")
+    desc.config(wrap=WORD)
+
+    #Campo de trailer
+    trailer_space = Canvas(page, bg="gray", width=370, height=268, bd=2, relief="sunken")
+    trailer_space.place(x=335, y=250)
+
+    videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+    videoplayer.load(r"rick-and-morty-trailer.mp4")
+
+    #Buttons play/pause
+    def playVideo() :
+        videoplayer.play()
+
+    def pauseVideo():
+        videoplayer.pause()
+
+    btn_play = Button(trailer_space, bg="blue", text="Play", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = playVideo)
+    btn_play.place(x=20, y=230)
+
+    btn_pause = Button(trailer_space, bg="blue", text="Pause", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = pauseVideo)
+    btn_pause.place(x=100, y=230)
+
+    #Check button, marcar como visto e adicionar aos favoritos
+    val = IntVar()
+    val1 = IntVar()
+
+    check1 = Checkbutton(page, text="Adicionar aos favoritos",variable = val)
+    check2 = Checkbutton(page, text="Marcar como visto", variable = val1)
+
+    check1.place(x=25, y=480)
+    check2.place(x=25, y=505)
+
+    def salvar_alteracoes():
+
+        if val.get() == 1 and val1.get() == 0:
+            f = open("lista_favoritos.txt","a")
+            frase = "Rick and Morty (2013)" + "\n"
+            f.write(frase)
+            f.close
+
+        elif val.get() == 1 and val1.get() == 1:
+            f = open("lista_vistos.txt", "a")
+            frase = "Rick and Morty (2013)" +"\n"
+            f.write(frase)
+            f.close
+            f = open("lista_favoritos.txt","a")
+            frase = "Rick and Morty (2013)" + "\n"
+            f.write(frase)
+            f.close
+        elif val.get() == 0 and val1.get() == 1:
+            f=open("lista_vistos.txt", "a")
+            frase = "Rick and Morty (2013)" + "\n"
+            f.write(frase)
+            f.close
+
+    def comment():
+        linha=txt_coment.get("1.0","end")
+        ficheiro="com_rickmorty.txt"
+        f=open(ficheiro,"w", encoding="utf-8")
+        f.write(linha)
+        f.close
+        f=open(ficheiro,"r",encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def selecao_item(event):
+        indice = lbox_coment.curselection()
+        texto = lbox_coment.get(indice)
+        coment.set(texto)
+
+    def remover():
+        lbox_coment.delete(lbox_coment.curselection())
+        coment.set("")
+        f = open("com_rickmorty.txt", "w", encoding="utf-8")
+        cont = lbox_coment.size()
+        for i in range(cont):
+            com = lbox_coment.get(i) 
+            if com.find("\n") == -1:
+                com = com + "\n"
+            f.write(com)
+        f.close()
+
+    def read_comment():
+        f=open("com_rickmorty.txt", "r")
+        ficheiro=f.readlines()
+        f.close()
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def num_likes():
+        f=open("like_rickmorty.txt", "r", encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close()
+        count=0
+        for linha in ficheiro:
+            count=count+1
+        count_likes.set(str(count))
+
+    def give_like():
+        if rd_like.get()==True:
+            f=open("like_rickmorty.txt","a")
+            frase="Like"+"\n"
+            f.write(frase)
+            f.close
+        num_likes()
+
+    #Button salva dados do filme
+    favButton = Button(page, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 11",command=salvar_alteracoes)
+    favButton.place(x=200, y=490) 
+
+    #Campo likes/comentários
+    eval_space = Canvas(page, bg="gray", width=400, height=500, bd=2, relief="sunken")
+    eval_space.place(x=720, y=20)
+
+    #Campo de likes
+    like_space = LabelFrame(eval_space, text="Likes", width=380, height=60, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    like_space.place(x=15, y=15)
+
+    rd_like=IntVar()
+
+    rd_like=Checkbutton(like_space,text="Like",font=("Helvetica", 10) ,variable=rd_like, command=give_like)
+    rd_like.place(x=15,y=7)
+
+    lbl_count_likes=Label(like_space, text="Nº de Likes:", font=("Helvetica", 9))
+    lbl_count_likes.place(x=70, y=10)
+
+    count_likes = StringVar()
+    txt_count_likes=Entry(like_space, width = 5, textvariable= count_likes)
+    txt_count_likes.place(x=140, y=10)
+
+    #Campo de comentários
+    com_space = LabelFrame(eval_space, text="Comentários", width=380, height=410, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    com_space.place(x=15, y=85)
+
+    coment = StringVar()
+
+    #Button
+    btn_guardar=Button(com_space, text="Comentar", width=10, height=2 , fg="blue", command=comment)
+    btn_guardar.place(x=15, y=30)
+
+    btn_limpar=Button(com_space, text="Apagar", width=10, height=2, fg="blue", command=remover)
+    btn_limpar.place(x=120, y=30)
+
+    btn_ler=Button(com_space, text="Ver comentarios", width=15, height=2, fg="blue", command=read_comment)
+    btn_ler.place(x=220, y=30)
+
+    #Label
+    lbl_dcom=Label(com_space, text="Deixe aqui o seu comentario:", bd=2)
+    lbl_dcom.place(x=15,y=80)
+
+    #text
+    txt_coment=Text(com_space, width=40, height=3, relief="sunken", bd=3)
+    txt_coment.place(x=15, y=100)
+
+    #Label
+    lbl_com=Label(com_space, text="Comentários", bd=2)
+    lbl_com.place(x=15,y=157)
+
+    #listbox
+    lbox_coment=Listbox(com_space, width=55, height=12, bd="3", selectmode = "single", selectbackground="blue")
+    lbox_coment.place(x=15, y= 180)
+    lbox_coment.bind("<<ListboxSelect>>", selecao_item)
+
+    page.mainloop()
 
 
 #Ir para Top 3
 
+def function7():
+    page = Toplevel()
+    page.geometry("1150x540")
+    page.title("Spirited Away")
+    page.resizable(0, 0)
+    page.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
+
+
+    #Canvas para póster
+    poster_space = Canvas(page, width=298, height=441, bd=2, relief="sunken")
+    poster_space.place(x=20, y=20)
+
+    #Imagem póster
+    img = PhotoImage(file="spirited-away-poster.gif")
+    poster_space.create_image(253, 375, image=img)
+
+    #Campo de título
+    titulo = Label(page, text="Spirited Away (2001)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
+    titulo.place(x=350, y=20)
+
+    #Campo de Categorias
+    cat = Label(page, text="Categorias:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cat.place(x=350, y=60)
+
+    cat2 = Label(page, text="Fantasia, Animação", font=("Calisto MT", "10"))
+    cat2.place(x=420, y=60)
+
+    #Classificação
+    clas = Label(page, text="Classificação:", fg="blue", font=("Calisto MT", "10", "bold"))
+    clas.place(x=350, y=80)
+
+    clas2 = Label(page, text="8.6", font=("Calisto MT", "10"))
+    clas2.place(x=435, y=80)
+
+    #Elenco
+    cast = Label(page, text="Elenco:", fg="blue", font=("Calisto MT", "10", "bold"))
+    cast.place(x=350, y=100)
+
+    cast2 = Label(page, text="Rumi Hiiragi, Miyu Irino", font=("Calisto MT", "10"))
+    cast2.place(x=400, y=100)
+
+    #Campo de descrição
+    desc = Text(page, height=6, width=52, font=("Calisto MT", "10", "bold"))
+    desc.place(x=340, y=125)
+    desc.insert(1.0, "Chihiro e seus pais estão se a mudar para uma cidade diferente. A caminho da nova casa, o pai decide ir por um um atalho. Eles se deparam com uma mesa repleta de comida, embora ninguém esteja por perto. Chihiro sente o perigo, mas seus pais começam a comer. Quando anoitece, eles se transformam em porcos. Agora, apenas Chihiro pode salvá-los.")
+    desc.config(state="disabled")
+    desc.config(wrap=WORD)
+
+    #Campo de trailer
+    trailer_space = Canvas(page, bg="gray", width=370, height=268, bd=2, relief="sunken")
+    trailer_space.place(x=335, y=250)
+
+    videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+    videoplayer.load(r"spirited-away-trailer.mp4")
+
+    #Buttons play/pause
+    def playVideo() :
+        videoplayer.play()
+
+    def pauseVideo():
+        videoplayer.pause()
+
+    btn_play = Button(trailer_space, bg="blue", text="Play", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = playVideo)
+    btn_play.place(x=20, y=230)
+
+    btn_pause = Button(trailer_space, bg="blue", text="Pause", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))#, command = pauseVideo)
+    btn_pause.place(x=100, y=230)
+
+    #Check button, marcar como visto e adicionar aos favoritos
+    val = IntVar()
+    val1 = IntVar()
+
+    check1 = Checkbutton(page, text="Adicionar aos favoritos",variable = val)
+    check2 = Checkbutton(page, text="Marcar como visto", variable = val1)
+
+    check1.place(x=25, y=480)
+    check2.place(x=25, y=505)
+
+    def salvar_alteracoes():
+
+        if val.get() == 1 and val1.get() == 0:
+            f = open("lista_favoritos.txt","a")
+            frase = "Spirited Away (2001)" + "\n"
+            f.write(frase)
+            f.close
+
+        elif val.get() == 1 and val1.get() == 1:
+            f = open("lista_vistos.txt", "a")
+            frase = "Spirited Away (2001)" +"\n"
+            f.write(frase)
+            f.close
+            f = open("lista_favoritos.txt","a")
+            frase = "Spirited Away (2001)" + "\n"
+            f.write(frase)
+            f.close
+        elif val.get() == 0 and val1.get() == 1:
+            f=open("lista_vistos.txt", "a")
+            frase = "Spirited Away (2001)" + "\n"
+            f.write(frase)
+            f.close
+
+    def comment():
+        linha=txt_coment.get("1.0","end")
+        ficheiro="com_spirited.txt"
+        f=open(ficheiro,"w", encoding="utf-8")
+        f.write(linha)
+        f.close
+        f=open(ficheiro,"r",encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def selecao_item(event):
+        indice = lbox_coment.curselection()
+        texto = lbox_coment.get(indice)
+        coment.set(texto)
+
+    def remover():
+        lbox_coment.delete(lbox_coment.curselection())
+        coment.set("")
+        f = open("com_spirited.txt", "w", encoding="utf-8")
+        cont = lbox_coment.size()
+        for i in range(cont):
+            com = lbox_coment.get(i) 
+            if com.find("\n") == -1:
+                com = com + "\n"
+            f.write(com)
+        f.close()
+
+    def read_comment():
+        f=open("com_spirited.txt", "r")
+        ficheiro=f.readlines()
+        f.close()
+        for linha in ficheiro:
+            lbox_coment.insert("end",linha)
+        txt_coment.delete("1.0","end")
+        txt_coment("end", "")
+
+    def num_likes():
+        f=open("like_spirited.txt", "r", encoding="utf-8")
+        ficheiro=f.readlines()
+        f.close()
+        count=0
+        for linha in ficheiro:
+            count=count+1
+        count_likes.set(str(count))
+
+    def give_like():
+        if rd_like.get()==True:
+            f=open("like_spirited.txt","a")
+            frase="Like"+"\n"
+            f.write(frase)
+            f.close
+        num_likes()
+
+    #Button salva dados do filme
+    favButton = Button(page, text="Salvar alterações",bg = "#FA6B6B",fg = "black",relief = "solid",bd = 2,font = "Arial 11",command=salvar_alteracoes)
+    favButton.place(x=200, y=490) 
+
+    #Campo likes/comentários
+    eval_space = Canvas(page, bg="gray", width=400, height=500, bd=2, relief="sunken")
+    eval_space.place(x=720, y=20)
+
+    #Campo de likes
+    like_space = LabelFrame(eval_space, text="Likes", width=380, height=60, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    like_space.place(x=15, y=15)
+
+    rd_like=IntVar()
+
+    rd_like=Checkbutton(like_space,text="Like",font=("Helvetica", 10) ,variable=rd_like, command=give_like)
+    rd_like.place(x=15,y=7)
+
+    lbl_count_likes=Label(like_space, text="Nº de Likes:", font=("Helvetica", 9))
+    lbl_count_likes.place(x=70, y=10)
+
+    count_likes = StringVar()
+    txt_count_likes=Entry(like_space, width = 5, textvariable= count_likes)
+    txt_count_likes.place(x=140, y=10)
+
+    #Campo de comentários
+    com_space = LabelFrame(eval_space, text="Comentários", width=380, height=410, bd=2, relief="raised", fg="red", font=("Calisto MT", "10", "bold"))
+    com_space.place(x=15, y=85)
+
+    coment = StringVar()
+
+    #Button
+    btn_guardar=Button(com_space, text="Comentar", width=10, height=2 , fg="blue", command=comment)
+    btn_guardar.place(x=15, y=30)
+
+    btn_limpar=Button(com_space, text="Apagar", width=10, height=2, fg="blue", command=remover)
+    btn_limpar.place(x=120, y=30)
+
+    btn_ler=Button(com_space, text="Ver comentarios", width=15, height=2, fg="blue", command=read_comment)
+    btn_ler.place(x=220, y=30)
+
+    #Label
+    lbl_dcom=Label(com_space, text="Deixe aqui o seu comentario:", bd=2)
+    lbl_dcom.place(x=15,y=80)
+
+    #text
+    txt_coment=Text(com_space, width=40, height=3, relief="sunken", bd=3)
+    txt_coment.place(x=15, y=100)
+
+    #Label
+    lbl_com=Label(com_space, text="Comentários", bd=2)
+    lbl_com.place(x=15,y=157)
+
+    #listbox
+    lbox_coment=Listbox(com_space, width=55, height=12, bd="3", selectmode = "single", selectbackground="blue")
+    lbox_coment.place(x=15, y= 180)
+    lbox_coment.bind("<<ListboxSelect>>", selecao_item)
+
+    page.mainloop()
 
 
 #Knives Out
@@ -638,10 +1139,10 @@ def function16():
 
 #Header
 
-Login = Button(mainWindow, text="Login",width=8,height=2,command=login_registo())
+Login = Button(mainWindow, text="Login",width=8,height=2,)
 Login.place(x=680,y=25)
 
-Registo = Button(mainWindow,text="Registo",width=8,height=2,command=login_registo())
+Registo = Button(mainWindow,text="Registo",width=8,height=2)
 Registo.place(x=750,y=25)
 
 Pesquisa = Button(mainWindow,text="Pesquisa",width=60,height=2,command=pesquisa())
@@ -667,7 +1168,7 @@ top1_canvas.create_image(127,112,image = AvatarResized)
 
 #Button TOP 1
 
-top1_label = Button(mainWindow,text="Avatar the Last Airbend - TOP OVERALL")
+top1_label = Button(mainWindow,text="Avatar the Last Airbend - TOP OVERALL",command=lambda: function17())
 top1_label.place(x=86,y=640)
 
 #Image TOP 2
@@ -682,7 +1183,7 @@ top2_canvas.create_image(127,112,image = RMResized)
 
 #Button TOP 2
 
-top2_label = Button(mainWindow,text="Rick and Morty - TOP SERIES")
+top2_label = Button(mainWindow,text="Rick and Morty - TOP SERIES",command=lambda:function19())
 top2_label.place(x=372,y=640)
 
 #Imagem TOP 3
@@ -697,7 +1198,7 @@ top3_canvas.create_image(127,112,image = SAResized)
 
 #Button TOP 3
 
-top3_label = Button(mainWindow,text="Spirit Away - TOP FILME")
+top3_label = Button(mainWindow,text="Spirit Away - TOP FILME",command=lambda:function7())
 top3_label.place(x=648,y=640)
 
 
