@@ -234,45 +234,6 @@ lbl_19 = Label(window, text = "4.2", relief="sunken", bd=1)
 lbl_19.place(x=375, y=735)
 
 
-def acao():
-    window_acao = Tk()
-    window_acao.resizable(True, True)
-    window_acao.geometry("1300x1000")
-    window_acao.title("Most Rated - Ação")
-
-
-    ctn_canvas = Canvas(window_acao, width = 125, height = 153, bd = 3,bg="black", relief = "solid")
-    ctn_canvas.place(x=10, y=20)
-
-    img = PhotoImage(file = "cobra-kai-poster.gif")
-    ctn_canvas.create_image(63,77, image = img)
-
-    lbl = Label(window, text="Cobra Kai", relief="sunken", bd=1)
-    lbl.place(x=5, y=210)
-    lbl_ = Label(window, text = "8.6", relief="sunken", bd=1)
-    lbl_.place(x=65, y=230)
-
-    window_acao.mainloop()
-
-
-menu_categoria = Menu(window)
-
-fileCategoria = Menu(menu_categoria, tearoff = 0)
-fileCategoria.add_command(label="Ação", command=acao)
-menu_categoria.add_cascade(label="Categorias", menu=fileCategoria)
-
-
-window.config(menu=menu_categoria)
-
-
-
-
-
-
-
-
-
-
 
 window.mainloop()
 
