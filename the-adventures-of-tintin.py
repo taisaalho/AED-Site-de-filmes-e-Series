@@ -1,14 +1,16 @@
 from tkinter import *
 from turtle import bgcolor, color
 from tkinter import messagebox
-
+from lista_de_favs_e_vist import*
 
 #from tkVideoPlayer import TkinterVideo
+
 
 window = Tk()
 window.geometry("1150x540")
 window.title("Item-Title")
 window.resizable(0, 0)
+window.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
 
 
 #Canvas para póster
@@ -102,6 +104,7 @@ def salvar_alteracoes():
         frase = "The Adventures of Tintin (2011)" + "\n"
         f.write(frase)
         f.close
+    
 
 def comment():
     linha=txt_coment.get("1.0","end")
@@ -217,10 +220,10 @@ lbox_coment=Listbox(com_space, width=55, height=12, bd="3", selectmode = "single
 lbox_coment.place(x=15, y= 180)
 lbox_coment.bind("<<ListboxSelect>>", selecao_item)
 
- 
-    
-    
-    
+
+#Button lista de favoritos
+fav_button = Button(window, text="Lista de Favoritos", relief="solid", bd=1, bg="#FA6B6B",fg = "black", font = "Arial 11",command=function1)
+fav_button.place(x=585, y=218)
 
 
 
