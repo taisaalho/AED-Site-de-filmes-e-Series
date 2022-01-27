@@ -9,7 +9,6 @@ window = Tk()
 window.geometry("1150x540")
 window.title("Item-Title")
 window.resizable(0, 0)
-window.iconbitmap("imagens\Martynamru-Leather-Movie.ico")
 
 
 #Canvas para póster
