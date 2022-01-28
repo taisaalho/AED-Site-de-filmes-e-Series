@@ -1,6 +1,9 @@
 from tkinter import *
 from turtle import bgcolor, color
 from tkinter import messagebox
+from tkinter import filedialog
+from PIL import ImageTk,Image
+from tkVideoPlayer import TkinterVideo
 
 
 #from tkVideoPlayer import TkinterVideo
@@ -58,6 +61,9 @@ desc.config(state="disabled")
 #Campo de trailer
 trailer_space = Canvas(window, bg="gray", width=370, height=268, bd=2, relief="solid")
 trailer_space.place(x=335, y=250)
+
+videoplayer = TkinterVideo(trailer_space, scaled=True, pre_load=False)
+videoplayer.load(r"item-pages\\item-pages\\1-Aquaman\\10-The Adventures of Tintin\\tintin-tlr1_h720p.mov")
 
 #Buttons play/pause
 btn_play = Button(trailer_space, bg="blue", text="Play", height=1, width=8, fg="white", font=("Calisto MT", "8", "bold"))

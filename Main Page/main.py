@@ -29,48 +29,37 @@ global panelUsers
 
 #Login e Registo
 
-#Registo
+def validaConta(userName, userPass):
+    f=open(user, "r", encoding="utf-8")
+    listaUsers = f.readlines()
+    f.close()
+    for linha in listaUsers:
+        fields = linha.split(";")
+        if fields[0] == userName and fields[1][:-1] == userPass:
+            msg = "Bem-Vindo " + userName
+            messagebox.showinfo("Iniciar Sessão", msg)
+            return userName
+    messagebox.showerror("Iniciar Sessão", "O UserName ou a Password estão incorretos!")
+    return ""
+    
 
-def registar(funcao, btnSessao):
-   if userAutenticado.get() != "":     # SE JÁ EXISTE um user autenticado, a ieia é terminar sessão
-      userAutenticado.set("")
-      btnSessao.config(text = "Iniciar Sessão")
-      return
-
-   panelUsers.place(x=580, y=28)
-# Username
-   labelUsers = Label(panelUsers, text ="Username:")
-   labelUsers.place(x=10, y= 10)
-   userName = StringVar()
-   txtUser = Entry(panelUsers, width=20, textvariable=userName)
-   txtUser.place(x=80, y= 10)
-#Password
-   labelPass = Label(panelUsers, text ="Password:")
-   labelPass.place(x=10, y= 60)
-   userPass = StringVar()
-   txtPass = Entry(panelUsers, width=20, textvariable = userPass, show = "*")
-   txtPass.place(x=80, y= 60)
-#Buttons
-   if funcao == 1:   # Abre painel para criar conta
-      btnUsers = Button(panelUsers, text = "Criar Conta", width = 12, height = 2, 
-                 command = lambda: [criaConta(userName.get(), userPass.get()), fechaPanelUsers()])
-      btnUsers.place(x=10, y= 110)
-      btnCalcel = Button(panelUsers, text = "Cancelar", width = 12, height = 2, command = fechaPanelUsers)
-      btnCalcel.place(x=120, y= 110)
-   else:         # Abre painel para iniciar sessão
-      btnUsers = Button(panelUsers, text = "Iniciar Sessão", width = 12, height = 2, 
-                 command = lambda: iniciarSessao(userName.get(), userPass.get())   )
-      btnUsers.place(x=10, y= 110)
-      btnCalcel = Button(panelUsers, text = "Cancelar", width = 12, height = 2, command = fechaPanelUsers)
-      btnCalcel.place(x=120, y= 110)
-
-#Login
- 
-def iniciarSessao(userName, userPass):
-   userAutenticado.set(validaConta(userName, userPass))
-   if userAutenticado.get() != "":
-      btnSessao.config(text = "Terminar Sessão")
-      fechaPanelUsers()
+def criaConta(userName, userPass):
+    if userName == "" or userPass == "":
+        messagebox.showerror("Criar Conta", "O username e a password não podem ser vazios!")
+        return         
+    f=open(user, "r", encoding="utf-8")
+    listaUsers = f.readlines()
+    f.close()
+    for linha in listaUsers:
+        fields = linha.split(";")
+        if fields[0] == userName:
+            messagebox.showerror("Criar Conta", "Já existe um utilizador com esse username!")
+            return 
+    f = open(user, "a")
+    linha = userName + ";" + userPass + "\n"
+    f.write(linha)
+    f.close()
+    messagebox.showinfo("Criar Conta", "Conta criada com sucesso!")
 
 
 #Pesquisa
