@@ -1,7 +1,7 @@
 from tkinter import *
 from turtle import bgcolor, color
 from tkinter import messagebox
-
+from lista_de_favoritos import *
 
 #from tkVideoPlayer import TkinterVideo
 
@@ -222,7 +222,7 @@ lbox_coment.bind("<<ListboxSelect>>", selecao_item)
 
 
 #Button lista de favoritos
-fav_button = Button(window, text="Lista de Favoritos", relief="solid", bd=1, bg="#FA6B6B",fg = "black", font = "Arial 11")
+fav_button = Button(window, text="Lista de Favoritos", relief="solid", bd=1, bg="#FA6B6B",fg = "black", font = "Arial 11",command=function1)
 fav_button.place(x=585, y=218)
 
 
