@@ -24,7 +24,7 @@ cnt_canvas.create_image(152,223,image = img)
 #poster_space.create_image(253, 375, image=img)
 
 #Campo de título
-titulo = Label(window, text="The Adventures of Tintin (2011)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
+titulo = Label(window, text="Aquaman (2018)", fg="#5E239D", font=("Calisto MT", "16", "bold"))
 titulo.place(x=340, y=20)
 
 
@@ -46,7 +46,7 @@ clas2.place(x=435, y=80)
 cast = Label(window, text="Elenco:", fg="blue", font=("Calisto MT", "10", "bold"))
 cast.place(x=340, y=100)
 
-cast2 = Label(window, text="Jamie Bell, Andy Serkins", font=("Calisto MT", "10"))
+cast2 = Label(window, text="Jason Momoa, Amber Heard", font=("Calisto MT", "10"))
 cast2.place(x=400, y=100)
 
 #Campo de descrição
@@ -54,7 +54,7 @@ desc = Label(window, text="Descrição:", fg="blue", font=("Calisto MT", "10", "
 desc.place(x=340, y=120)
 desc = Text(window, height=4, width=50, font=("Calisto MT", "10", "bold"))
 desc.place(x=340, y=140)
-desc.insert(1.0, "A aventura começa assim que Tintim compra a miniatura de um barco. Sem saber o segredo do objeto, ele e seu cachorro são raptados. Presos num barco, conseguem escapar junto com o capitão e, aos poucos, vão decifrando todos os seus mistérios.")
+desc.insert(1.0, "A cidade de Atlantis, que já foi lar de uma das mais avançadas civilizações do mundo, agora é um reino submerso dominado pelo ganancioso Rei Orm. Com um vasto exército a seu dispor, Orm planeja conquistar tanto os demais reinos do oceano, quanto o mundo da superfície. Em seu caminho está Aquaman, meio-humano e meio-atlante, e verdadeiro herdeiro do trono. Com a ajuda da princesa Mera, Aquaman precisa recuperar o lendário Tridente de Atlan e aceitar seu destino como protetor das profundezas.")
 desc.config(state="disabled")
 
 #Campo de trailer
@@ -86,22 +86,22 @@ def salvar_alteracoes():
 
     if val.get() == 1 and val1.get() == 0:
         f = open("lista_favoritos.txt","a")
-        frase = "The Adventures of Tintin (2011)" + "\n"
+        frase = "Aquaman (2018)" + "\n"
         f.write(frase)
         f.close
 
     elif val.get() == 1 and val1.get() == 1:
         f = open("lista_vistos.txt", "a")
-        frase = "The Adventures of Tintin (2011)" +"\n"
+        frase = "Aquaman (2018)" +"\n"
         f.write(frase)
         f.close
         f = open("lista_favoritos.txt","a")
-        frase = "The Adventures of Tintin (2011)" + "\n"
+        frase = "Aquaman (2018)" + "\n"
         f.write(frase)
         f.close
     elif val.get() == 0 and val1.get() == 1:
         f=open("lista_vistos.txt", "a")
-        frase = "The Adventures of Tintin (2011)" + "\n"
+        frase = "Aquaman (2018)" + "\n"
         f.write(frase)
         f.close
     
