@@ -78,4 +78,3 @@ def function1():
 
 
     window.mainloop()   
-
